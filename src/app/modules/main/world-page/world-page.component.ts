@@ -24,7 +24,7 @@ export class WorldPageComponent implements OnInit {
         console.log('setting world')
         this.world = data
         console.log('World size is ' + this.world.tiles.length + ' tiles.')
-        console.log('x size = ' +this.world.xSize + ' ysize = ' + this.world.ySize)
+        console.log('x size = ' +this.world.xsize + ' y size = ' + this.world.ysize)
         }
       );
 
