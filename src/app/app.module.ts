@@ -12,6 +12,7 @@ import { YTilePipePipe } from './pipes/y-tile-pipe.pipe';
 import { TileHolderComponent } from './modules/main/tile-holder/tile-holder.component';
 import { ImageSelectorPipe } from './pipes/image-selector.pipe';
 import { SanitizedImagePipe } from './pipes/sanitized-image.pipe';
+import { ActorImageSelectorPipe } from './pipes/actor-image-selector.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SanitizedImagePipe } from './pipes/sanitized-image.pipe';
     YTilePipePipe,
     TileHolderComponent,
     ImageSelectorPipe,
-    SanitizedImagePipe
+    SanitizedImagePipe,
+    ActorImageSelectorPipe
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { World, Tile, Coordinate } from 'src/app/shared/models/world';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { Tile } from 'src/app/shared/models/world';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tile-holder',
   templateUrl: './tile-holder.component.html',
   styleUrls: ['./tile-holder.component.css']
 })
+
 export class TileHolderComponent implements OnInit {
   @Input('tileHolder')
   public tile: Tile;
@@ -15,7 +15,7 @@ export class TileHolderComponent implements OnInit {
 
 
 getEmbeddedLandType(tile: Tile) {
-  return this.sanitizer.bypassSecurityTrustUrl("assets/" + tile.landType + ".png");
+  return this.sanitizer.bypassSecurityTrustUrl("assets/" + tile.surfaceType + ".png");
 }
 
   constructor( private sanitizer: DomSanitizer) {
