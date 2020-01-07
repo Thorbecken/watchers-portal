@@ -48,5 +48,7 @@ export class Biome {
 
 export enum SurfaceType {
     CONTINENTAL = "CONTINENTAL",
-    OCEANIC = "OCEANIC" 
+    OCEANIC = "OCEANIC" ,
+    COASTAL = "COASTAL",
+    DEEP_OCEAN = "DEEP_OCEAN" 
 }

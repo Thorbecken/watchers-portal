@@ -10,8 +10,12 @@ export class ImageSelectorPipe implements PipeTransform {
     switch(tile.surfaceType) {
     case SurfaceType.CONTINENTAL:
       return 'grassFiller';
+    case SurfaceType.COASTAL:
+      return 'CoastalWater'
     case SurfaceType.OCEANIC:
-      return 'OceanFiller';
+      return 'Ocean';
+    case SurfaceType.DEEP_OCEAN:
+      return 'DeepOcean';
     }
     return null;
   }
