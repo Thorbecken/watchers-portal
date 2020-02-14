@@ -1,0 +1,8 @@
+<div *ngIf="tile != null">
+  <div class="words">coordinates are: {{tile.xCoord}}, {{tile.yCoord}}. Surfacetype: {{tile.surfaceType}}. Current food: {{tile.biome.currentFood}}. Currently contains {{tile.actors.length}} actor(s).</div>
+  <button (click)="seedLife()">Seed Life</button>
+</div>
+
+<div *ngIf="tile == null">
+  <div class="words">none selected</div>
+</div>

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { World } from 'src/app/shared/models/world';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { World, Tile } from 'src/app/shared/models/world';
 import { WorldService } from 'src/app/services/world-service.service';
 
 
 @Component({
-  selector: 'app-world-page',
+  selector: 'world-page',
   templateUrl: './world-page.component.html',
   styleUrls: ['./world-page.component.css']
 })
@@ -12,8 +12,14 @@ import { WorldService } from 'src/app/services/world-service.service';
 export class WorldPageComponent implements OnInit {
   title = 'WorldPage';
   public world: World;
-
+  @Output() currentSelectedTile = new EventEmitter<Tile>();
+  
+  
   constructor(private _worldService: WorldService) { }
+
+  tileSelected(tile: Tile){
+    this.currentSelectedTile.emit(tile);
+  }
 
   ngOnInit() {
     this._worldService.getWorld("1")

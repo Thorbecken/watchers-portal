@@ -1,7 +1,7 @@
 <table *ngIf="world">
   <td class="column" *ngFor="let tileColumn of world | xColumnPipe">
     <div class="row" *ngFor = "let tile of tileColumn">
-      <app-tile-holder [tileHolder]=tile></app-tile-holder>
+      <app-tile-holder [tileHolder]=tile (tileSelected)="tileSelected($event)"></app-tile-holder>
     </div>
   </td>
 </table>

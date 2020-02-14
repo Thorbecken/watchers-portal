@@ -13,6 +13,12 @@ export class Tile {
     surfaceType: SurfaceType;
 }
 
+export class Biome {
+    currentFood: number;
+    maxFood: number;
+    fertillity: number;
+}
+
 export class Actor {
     stateType: StateType;
     naturalHabiat: NaturalHabitat;
@@ -38,12 +44,6 @@ export enum NaturalHabitat {
 export enum AnimalType {
     RABBIT = "RABBIT",
     WHALE = "WHALE"
-}
-
-export class Biome {
-    currentFood: number;
-    maxFood: number;
-    fertillity: number;
 }
 
 export enum SurfaceType {

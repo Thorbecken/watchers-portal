@@ -13,17 +13,22 @@ import { TileHolderComponent } from './modules/main/tile-holder/tile-holder.comp
 import { ImageSelectorPipe } from './pipes/image-selector.pipe';
 import { SanitizedImagePipe } from './pipes/sanitized-image.pipe';
 import { ActorImageSelectorPipe } from './pipes/actor-image-selector.pipe';
+import { GameScreenComponent } from './modules/main/game-screen/game-screen.component';
+import { TopMenuComponent } from './modules/main/top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    GameScreenComponent,
     WorldPageComponent,
     XColumnPipePipe,
     YTilePipePipe,
     TileHolderComponent,
     ImageSelectorPipe,
     SanitizedImagePipe,
-    ActorImageSelectorPipe
+    ActorImageSelectorPipe,
+    GameScreenComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
