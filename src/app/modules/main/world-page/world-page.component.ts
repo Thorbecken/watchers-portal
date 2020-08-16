@@ -12,6 +12,7 @@ import { WorldService } from 'src/app/services/world-service.service';
 export class WorldPageComponent implements OnInit {
   title = 'WorldPage';
   public world: World;
+  public tiles: Tile[][];
   @Output() currentSelectedTile = new EventEmitter<Tile>();
   
   

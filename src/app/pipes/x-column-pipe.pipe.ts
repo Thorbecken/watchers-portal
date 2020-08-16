@@ -11,12 +11,12 @@ export class XColumnPipePipe implements PipeTransform {
     let xColumns: Tile[][] = [];
 
     for(let x = 1; x <= incomingWorld.xsize; x++){
-      let tileColumn: Tile[] = incomingWorld.tiles.filter(tile => tile.xCoord == x);
-      tileColumn.sort((tile1, tile2) => (tile1.yCoord < tile2.yCoord) ? -1 : 1);
+      let tileColumn: Tile[] = incomingWorld.tiles.filter(tile => tile.coordinate.xCoord == x);
+      tileColumn.sort((tile1, tile2) => (tile1.coordinate.yCoord < tile2.coordinate.yCoord) ? -1 : 1);
       xColumns.push(tileColumn);
     }
 
-    console.log('returning ' + xColumns.length + ' columns with an xSize of ' + incomingWorld.xsize + ' and an ySize of ' + incomingWorld.ysize);
+    console.log('returning ' + xColumns.length + '(' + xColumns[1].length + ' size) columns with an xSize of ' + incomingWorld.xsize + ' and an ySize of ' + incomingWorld.ysize);
 
     return xColumns;
   }

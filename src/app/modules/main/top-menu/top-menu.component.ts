@@ -18,8 +18,8 @@ export class TopMenuComponent implements OnInit {
   }
 
   seedLife(){
-    this._actorService.seedLife(1, this.tile.xCoord, this.tile.yCoord).subscribe();
-    console.log("Seeded life at coordinate: " + this.tile.xCoord + "x ," + this.tile.yCoord + "y");
+    this._actorService.seedLife(1, this.tile.coordinate.xCoord, this.tile.coordinate.yCoord).subscribe();
+    console.log("Seeded life at coordinate: " + this.tile.coordinate.xCoord + "x ," + this.tile.coordinate.yCoord + "y");
   }
 
 }

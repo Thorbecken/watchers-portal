@@ -4,13 +4,17 @@ export class World {
     tiles: Tile[];
 }
 
-export class Tile {    
-    xCoord: number;
-    yCoord: number;
-    zCoord: number;
+export class Tile {
+    coordinate: Coordinate;
+    height: number;
     biome: Biome;
     actors: Actor[];
     surfaceType: SurfaceType;
+}
+
+export class Coordinate {
+    xCoord: number;
+    yCoord: number;
 }
 
 export class Biome {
@@ -47,7 +51,9 @@ export enum AnimalType {
 }
 
 export enum SurfaceType {
-    CONTINENTAL = "CONTINENTAL",
+    MOUNTAIN = "MOUNTAIN",
+    HILL = "HILL",
+    PLAIN = "PLAIN",
     OCEANIC = "OCEANIC" ,
     COASTAL = "COASTAL",
     DEEP_OCEAN = "DEEP_OCEAN" 

@@ -1,9 +1,9 @@
 <div (click)="onClickMe()">
   <div class="tile">
-  <div *ngIf="(tile.actors.length < 1)">
+  <div *ngIf="(tile.actors.length == 0)">
     <img class="surface" [src]="tile | imageSelector | sanitizedImage">
   </div>
-    <div *ngIf="(tile.actors.length > 0)">
+    <div *ngIf="(tile.actors.length != 0)">
       <img class="actor" [src]="tile.actors | actorImageSelector | sanitizedImage">
       <img class="surface2" [src]="tile | imageSelector | sanitizedImage">
     </div>
