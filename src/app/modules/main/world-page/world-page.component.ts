@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { World, Tile } from 'src/app/shared/models/world';
+import { World, Coordinate } from 'src/app/shared/models/world';
 import { WorldService } from 'src/app/services/world-service.service';
 
 
@@ -12,14 +12,13 @@ import { WorldService } from 'src/app/services/world-service.service';
 export class WorldPageComponent implements OnInit {
   title = 'WorldPage';
   public world: World;
-  public tiles: Tile[][];
-  @Output() currentSelectedTile = new EventEmitter<Tile>();
+  @Output() currentSelectedCoordinate = new EventEmitter<Coordinate>();
   
   
   constructor(private _worldService: WorldService) { }
 
-  tileSelected(tile: Tile){
-    this.currentSelectedTile.emit(tile);
+  coordinateSelected(coordinate: Coordinate){
+    this.currentSelectedCoordinate.emit(coordinate);
   }
 
   ngOnInit() {
@@ -27,7 +26,7 @@ export class WorldPageComponent implements OnInit {
       .subscribe(data => {
         console.log('setting world')
         this.world = data
-        console.log('World size is ' + this.world.tiles.length + ' tiles.')
+        console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
         console.log('x size = ' +this.world.xsize + ' y size = ' + this.world.ysize)
         }
       );
@@ -50,7 +49,7 @@ startTimer() {
       .subscribe(data => {
         console.log('setting world')
         this.world = data
-        console.log('World size is ' + this.world.tiles.length + ' tiles.')
+        console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
         console.log('x size = ' +this.world.xsize + ' y size = ' + this.world.ysize)
         }
       );

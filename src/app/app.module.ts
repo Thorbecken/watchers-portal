@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { WorldPageComponent } from './modules/main/world-page/world-page.component';
 import { WorldService } from './services/world-service.service';
 import { XColumnPipePipe } from './pipes/x-column-pipe.pipe';
-import { YTilePipePipe } from './pipes/y-tile-pipe.pipe';
-import { TileHolderComponent } from './modules/main/tile-holder/tile-holder.component';
+import { TileHolderComponent } from './modules/main/coordinate-holder/coordinate-holder.component';
 import { ImageSelectorPipe } from './pipes/image-selector.pipe';
 import { SanitizedImagePipe } from './pipes/sanitized-image.pipe';
 import { ActorImageSelectorPipe } from './pipes/actor-image-selector.pipe';
@@ -22,7 +21,6 @@ import { TopMenuComponent } from './modules/main/top-menu/top-menu.component';
     GameScreenComponent,
     WorldPageComponent,
     XColumnPipePipe,
-    YTilePipePipe,
     TileHolderComponent,
     ImageSelectorPipe,
     SanitizedImagePipe,

@@ -1,8 +1,8 @@
-<table *ngIf="world">
-  <div class="words">World Loaded!</div>
-  <td class="column" *ngFor="let tileColumn of world | xColumnPipe">
-    <div class="row" *ngFor="let tile of tileColumn">
-      <app-tile-holder [tileHolder]=tile (tileSelected)="tileSelected($event)"></app-tile-holder>
+<div class="words" *ngIf="world">World Loaded!</div>
+<table class="table" *ngIf="world">
+  <td class="column" *ngFor="let coordinateColumn of world | xColumnPipe">
+    <div class="row" *ngFor="let coordinate of coordinateColumn">
+      <app-coordinate-holder class="box" [coordinateHolder]=coordinate (coordinateSelected)="coordinateSelected($event)"></app-coordinate-holder>
     </div>
   </td>
 </table>

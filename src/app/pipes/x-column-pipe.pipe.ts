@@ -1,22 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Tile, World } from '../shared/models/world';
+import { Coordinate, World } from '../shared/models/world';
 
 @Pipe({
   name: 'xColumnPipe'
 })
 export class XColumnPipePipe implements PipeTransform {
 
-  transform(incomingWorld: World): Tile[][] {
+  transform(incomingWorld: World): Coordinate[][] {
 
-    let xColumns: Tile[][] = [];
+    let xColumns: Coordinate[][] = [];
 
     for(let x = 1; x <= incomingWorld.xsize; x++){
-      let tileColumn: Tile[] = incomingWorld.tiles.filter(tile => tile.coordinate.xCoord == x);
-      tileColumn.sort((tile1, tile2) => (tile1.coordinate.yCoord < tile2.coordinate.yCoord) ? -1 : 1);
-      xColumns.push(tileColumn);
+      let coordinateColumn: Coordinate[] = incomingWorld.coordinates.filter(coordinate => coordinate.xCoord == x);
+      coordinateColumn.sort((coordinate1, coordinate2) => (coordinate1.yCoord < coordinate2.yCoord) ? -1 : 1);
+      xColumns.push(coordinateColumn);
     }
 
-    console.log('returning ' + xColumns.length + '(' + xColumns[1].length + ' size) columns with an xSize of ' + incomingWorld.xsize + ' and an ySize of ' + incomingWorld.ysize);
+    console.log('returning ' + xColumns.length + '(' + xColumns[1].length + ' size) columns.');
 
     return xColumns;
   }

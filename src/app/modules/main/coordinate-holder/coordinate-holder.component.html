@@ -1,0 +1,11 @@
+<div (click)="onClickMe()">
+  <div class="coordinate">
+  <div *ngIf="(coordinate.actors.length == 0)">
+    <img class="surface" [src]="coordinate.tile | imageSelector | sanitizedImage">
+  </div>
+    <div *ngIf="(coordinate.actors.length != 0)">
+      <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
+      <img class="surface2" [src]="coordinate.tile | imageSelector | sanitizedImage">
+    </div>
+  </div>
+</div>

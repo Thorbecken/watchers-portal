@@ -1,8 +1,8 @@
-<div *ngIf="tile != null">
-  <div class="words">coordinates are: {{tile.coordinate.xCoord}}, {{tile.coordinate.yCoord}}. Surfacetype: {{tile.surfaceType}}. Height: {{tile.height}}. Current food: {{tile.biome.currentFood}}. Currently contains {{tile.actors.length}} actor(s).</div>
+<div *ngIf="coordinate != null">
+  <div class="words">coordinates are: {{coordinate.xCoord}}, {{coordinate.yCoord}}. Surfacetype: {{coordinate.tile.surfaceType}}. Height: {{coordinate.tile.height}}. Current food: {{coordinate.tile.biome.currentFood}}. Currently contains {{coordinate.actors.length}} actor(s).</div>
   <button (click)="seedLife()">Seed Life</button>
 </div>
 
-<div *ngIf="tile == null">
+<div *ngIf="coordinate == null">
   <div class="words">none selected</div>
 </div>

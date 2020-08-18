@@ -1,9 +1,13 @@
+.table{
+   border-spacing: 0px;
+}
+
 .column{
     width: 32px;
     min-width: 32px;
     margin: 0px;
     padding: 0px;
-    float: left;
+    float: none;
     clear: none;
     border: none;
 }
@@ -13,9 +17,13 @@
     min-height: 32px;
     margin: 0px;
     padding: 0px;
-    float: left;
+    float: none;
     clear: none;
     border: none;
+}
+.box{
+    height: 32px;
+    width: 32px;
 }
 .words{
     color: hotpink

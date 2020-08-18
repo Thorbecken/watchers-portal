@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TileHolderComponent } from './tile-holder.component';
+import { TileHolderComponent } from './coordinate-holder.component';
 
 describe('TileHolderComponent', () => {
   let component: TileHolderComponent;

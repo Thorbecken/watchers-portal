@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tile } from 'src/app/shared/models/world';
+import { Coordinate } from 'src/app/shared/models/world';
 
 @Component({
   selector: 'app-game-screen',
@@ -8,15 +8,15 @@ import { Tile } from 'src/app/shared/models/world';
 })
 export class GameScreenComponent implements OnInit {
 
-  currentTile: Tile = null;
+  currentCoordinate: Coordinate = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  currentSelectedTile(tile: Tile){
-    this.currentTile = tile;
+  currentSelectedCoordinate(coordinate: Coordinate){
+    this.currentCoordinate = coordinate;
   }
 
 }

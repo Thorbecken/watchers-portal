@@ -1,20 +1,20 @@
 export class World {
     xsize: number;
     ysize: number;
-    tiles: Tile[];
+    coordinates: Coordinate[];
 }
 
 export class Tile {
-    coordinate: Coordinate;
     height: number;
     biome: Biome;
-    actors: Actor[];
     surfaceType: SurfaceType;
 }
 
 export class Coordinate {
     xCoord: number;
     yCoord: number;
+    tile: Tile;
+    actors: Actor[];
 }
 
 export class Biome {

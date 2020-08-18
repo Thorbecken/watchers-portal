@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tile } from 'src/app/shared/models/world';
+import { Coordinate } from 'src/app/shared/models/world';
 import {ActorService} from 'src/app/services/actor-service.service';
 
 @Component({
@@ -9,8 +9,8 @@ import {ActorService} from 'src/app/services/actor-service.service';
 })
 export class TopMenuComponent implements OnInit {
 
-  @Input('currentTile')
-  public tile: Tile;
+  @Input('currentCoordinate')
+  public coordinate: Coordinate;
 
   constructor(private _actorService: ActorService) { }
 
@@ -18,8 +18,8 @@ export class TopMenuComponent implements OnInit {
   }
 
   seedLife(){
-    this._actorService.seedLife(1, this.tile.coordinate.xCoord, this.tile.coordinate.yCoord).subscribe();
-    console.log("Seeded life at coordinate: " + this.tile.coordinate.xCoord + "x ," + this.tile.coordinate.yCoord + "y");
+    this._actorService.seedLife(1, this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
+    console.log("Seeded life at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
 }
