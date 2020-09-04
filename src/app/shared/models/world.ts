@@ -11,10 +11,15 @@ export class Tile {
 }
 
 export class Coordinate {
+    continent: Continent;
     xCoord: number;
     yCoord: number;
     tile: Tile;
     actors: Actor[];
+}
+
+export class Continent {
+    id: number;
 }
 
 export class Biome {

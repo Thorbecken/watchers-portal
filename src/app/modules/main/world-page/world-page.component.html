@@ -2,7 +2,7 @@
 <table class="table" *ngIf="world">
   <td class="column" *ngFor="let coordinateColumn of world | xColumnPipe">
     <div class="row" *ngFor="let coordinate of coordinateColumn">
-      <app-coordinate-holder class="box" [coordinateHolder]=coordinate (coordinateSelected)="coordinateSelected($event)"></app-coordinate-holder>
+      <app-coordinate-holder class="box" [coordinateHolder]=coordinate [currentView]=currentView (coordinateSelected)="coordinateSelected($event)"></app-coordinate-holder>
     </div>
   </td>
 </table>

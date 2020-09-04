@@ -1,3 +1,6 @@
 .words{
     color: hotpink
 }
+.row{
+    display: inline-block;
+}

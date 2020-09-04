@@ -1,3 +1,8 @@
+<div class="row">
+  <a class="words">[{{currentView}}] </a>
+  <button (click)="switchToTileView()">Tiles</button>
+  <button (click)="switchToContinentalView()">Continents</button>
+</div>
 <div *ngIf="coordinate != null">
   <div class="words">coordinates are: {{coordinate.xCoord}}, {{coordinate.yCoord}}. Surfacetype: {{coordinate.tile.surfaceType}}. Height: {{coordinate.tile.height}}. Current food: {{coordinate.tile.biome.currentFood}}. Currently contains {{coordinate.actors.length}} actor(s).</div>
   <button (click)="seedLife()">Seed Life</button>

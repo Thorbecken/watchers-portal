@@ -12,6 +12,9 @@ export class TileHolderComponent implements OnInit {
   @Input('coordinateHolder')
   public coordinate: Coordinate;
   
+  @Input('currentView')
+  public currentView: string;
+  
   @Output() coordinateSelected = new EventEmitter<Coordinate>();
 
   onClickMe() {

@@ -9,6 +9,7 @@ import { Coordinate } from 'src/app/shared/models/world';
 export class GameScreenComponent implements OnInit {
 
   currentCoordinate: Coordinate = null;
+  currentView: string = 'TILE';
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class GameScreenComponent implements OnInit {
 
   currentSelectedCoordinate(coordinate: Coordinate){
     this.currentCoordinate = coordinate;
+  }
+  
+  currentSelectedView(currentView: string){
+    this.currentView = currentView;
   }
 
 }

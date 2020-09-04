@@ -1,2 +1,2 @@
-<top-menu [currentCoordinate]="currentCoordinate"></top-menu>
-<world-page (currentSelectedCoordinate)="currentSelectedCoordinate($event)"></world-page>
+<top-menu [currentCoordinate]="currentCoordinate" (currentSelectedView)="currentSelectedView($event)"></top-menu>
+<world-page (currentSelectedCoordinate)="currentSelectedCoordinate($event)" [currentView]="currentView"></world-page>

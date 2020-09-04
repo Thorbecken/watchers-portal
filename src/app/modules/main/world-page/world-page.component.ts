@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { World, Coordinate } from 'src/app/shared/models/world';
 import { WorldService } from 'src/app/services/world-service.service';
 
@@ -14,6 +14,8 @@ export class WorldPageComponent implements OnInit {
   public world: World;
   @Output() currentSelectedCoordinate = new EventEmitter<Coordinate>();
   
+  @Input('currentView')
+  public currentView: string;
   
   constructor(private _worldService: WorldService) { }
 

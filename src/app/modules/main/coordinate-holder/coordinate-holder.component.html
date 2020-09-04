@@ -1,11 +1,18 @@
 <div (click)="onClickMe()">
   <div class="coordinate">
-  <div *ngIf="(coordinate.actors.length == 0)">
-    <img class="surface" [src]="coordinate.tile | imageSelector | sanitizedImage">
-  </div>
-    <div *ngIf="(coordinate.actors.length != 0)">
-      <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
-      <img class="surface2" [src]="coordinate.tile | imageSelector | sanitizedImage">
+  <div *ngIf="(currentView == 'TILE')">  
+    <div *ngIf="(coordinate.actors.length == 0)">
+      <img class="surface" [src]="coordinate.tile | imageSelector | sanitizedImage">
     </div>
+      <div *ngIf="(coordinate.actors.length != 0)">
+        <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
+        <img class="surface2" [src]="coordinate.tile | imageSelector | sanitizedImage">
+      </div>
+    </div>
+  </div>
+
+  
+  <div *ngIf="(currentView == 'CONTINENT')">
+    <div style="color: hotpink;">{{coordinate.continent.id}}</div>
   </div>
 </div>
