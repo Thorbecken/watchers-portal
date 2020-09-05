@@ -14,6 +14,7 @@ import { SanitizedImagePipe } from './pipes/sanitized-image.pipe';
 import { ActorImageSelectorPipe } from './pipes/actor-image-selector.pipe';
 import { GameScreenComponent } from './modules/main/game-screen/game-screen.component';
 import { TopMenuComponent } from './modules/main/top-menu/top-menu.component';
+import { ContinentalColoringPipe } from './pipes/continental-coloring.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TopMenuComponent } from './modules/main/top-menu/top-menu.component';
     SanitizedImagePipe,
     ActorImageSelectorPipe,
     GameScreenComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    ContinentalColoringPipe
   ],
   imports: [
     BrowserModule,

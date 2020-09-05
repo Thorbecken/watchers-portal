@@ -11,8 +11,7 @@
     </div>
   </div>
 
-  
   <div *ngIf="(currentView == 'CONTINENT')">
-    <div style="color: hotpink;">{{coordinate.continent.id}}</div>
+    <img class="continentColor" [src]="coordinate | continentalColoring | sanitizedImage">
   </div>
 </div>
