@@ -8,7 +8,7 @@ export class ContinentalColoringPipe implements PipeTransform {
 
   transform(coordinate: Coordinate): string {
     let prefix: string = 'color/';
-    switch(coordinate.continent.id){  
+    switch(coordinate.continent.continentId){  
       case 1: return prefix + 'color-1';
       case 2: return prefix + 'color-2';
       case 3: return prefix + 'color-3';

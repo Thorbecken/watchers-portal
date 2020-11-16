@@ -29,7 +29,7 @@ export class WorldPageComponent implements OnInit {
         console.log('setting world')
         this.world = data
         console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
-        console.log('x size = ' +this.world.xsize + ' y size = ' + this.world.ysize)
+        console.log('x size = ' +this.world.xSize + ' y size = ' + this.world.ySize)
         }
       );
 
@@ -37,7 +37,7 @@ export class WorldPageComponent implements OnInit {
   } 
 
 
-  timeLeft: number = 10;
+  timeLeft: number = 60;
   interval;
 
 startTimer() {
@@ -45,14 +45,14 @@ startTimer() {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 10;
+        this.timeLeft = 60;
 
         this._worldService.getWorld("1")
       .subscribe(data => {
         console.log('setting world')
         this.world = data
         console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
-        console.log('x size = ' +this.world.xsize + ' y size = ' + this.world.ysize)
+        console.log('x size = ' +this.world.xSize + ' y size = ' + this.world.ySize)
         }
       );
       }

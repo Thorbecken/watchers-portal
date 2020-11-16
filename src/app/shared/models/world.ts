@@ -1,6 +1,6 @@
 export class World {
-    xsize: number;
-    ysize: number;
+    xSize: number;
+    ySize: number;
     coordinates: Coordinate[];
 }
 
@@ -19,7 +19,7 @@ export class Coordinate {
 }
 
 export class Continent {
-    id: number;
+    continentId: number;
 }
 
 export class Biome {
@@ -29,10 +29,10 @@ export class Biome {
 }
 
 export class Actor {
-    stateType: StateType;
-    naturalHabiat: NaturalHabitat;
+    status: StateType;
+    naturalHabitat: NaturalHabitat;
     foodReserve: number;
-    maxFoodReserve: number;
+    maxFood: number;
     foraging: number;
     metabolisme: number;
     movement: number;

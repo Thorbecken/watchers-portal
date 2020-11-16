@@ -10,7 +10,7 @@ export class XColumnPipePipe implements PipeTransform {
 
     let xColumns: Coordinate[][] = [];
 
-    for(let x = 1; x <= incomingWorld.xsize; x++){
+    for(let x = 1; x <= incomingWorld.xSize; x++){
       let coordinateColumn: Coordinate[] = incomingWorld.coordinates.filter(coordinate => coordinate.xCoord == x);
       coordinateColumn.sort((coordinate1, coordinate2) => (coordinate1.yCoord < coordinate2.yCoord) ? -1 : 1);
       xColumns.push(coordinateColumn);
