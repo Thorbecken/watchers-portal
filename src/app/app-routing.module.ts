@@ -8,15 +8,10 @@ const routes: Routes = [
     path: '',
     component: GameScreenComponent
   }
-  ,
-  {
-    path: 'world-page',
-    component: WorldPageComponent
-  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
