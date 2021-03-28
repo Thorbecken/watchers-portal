@@ -36,8 +36,8 @@ export class WorldPageComponent implements OnInit {
       this.startTimer();
   } 
 
-
-  timeLeft: number = 60;
+  timerTime: number = 10;
+  timeLeft: number = this.timerTime;
   interval;
 
 startTimer() {
@@ -45,7 +45,7 @@ startTimer() {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 60;
+        this.timeLeft = this.timerTime;
 
         this._worldService.getWorld("1")
       .subscribe(data => {

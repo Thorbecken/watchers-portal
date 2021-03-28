@@ -10,9 +10,9 @@ export class ActorImageSelectorPipe implements PipeTransform {
     for (const actor of actors) {
       if(actor.animalType == "RABBIT")
       {
-        return 'Rabbit';
+        return 'animals/Rabbit';
       } else if(actor.animalType == "WHALE") {
-        return 'Whale';
+        return 'animals/Whale';
       }
     }
     return null;
