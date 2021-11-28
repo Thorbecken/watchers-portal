@@ -10,7 +10,7 @@ export class ActorService {
 
   constructor(private http: HttpClient) { }
 
-  seedLife(worldId, xCoord, yCoord): Observable<Object> {
+  seedLife(worldId: number, xCoord: number, yCoord: number): Observable<Object> {
     let endUrl: string = this.url + worldId + "/" + xCoord + "/" + yCoord
     console.log(endUrl)
     

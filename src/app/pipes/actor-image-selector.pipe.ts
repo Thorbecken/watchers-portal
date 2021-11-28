@@ -15,7 +15,7 @@ export class ActorImageSelectorPipe implements PipeTransform {
         return 'animals/Whale';
       }
     }
-    return null;
+    return '';
   }
 
 }

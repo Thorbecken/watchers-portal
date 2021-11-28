@@ -81,7 +81,7 @@ export class ImageSelectorPipe implements PipeTransform {
       case BiomeTypeEnum.TROPICAL_PLAIN_JUNGLE:
         return 'terrain/hot/Hot_plain_jungle';
     }
-    return null;
+    return '';
   }
 
   // transform(tile: Tile): string {

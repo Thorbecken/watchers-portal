@@ -1,7 +1,16 @@
-# first "ng build --prod"
-# secondly run "docker build -t watchers-portal-version .
-# run with "docker run -d -p 4200:4200 watchers-portal-version"
+# Stage 1: Build an Angular Docker Image
+FROM node as build
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install
+COPY . /app
+ARG configuration=production
+RUN npm run build -- --outputPath=./dist/out --configuration $configuration
+# Stage 2, use the compiled app, ready for production with Nginx
+FROM nginx
+COPY --from=build /app/dist/out/ /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
 
-FROM nginx:alpine
-COPY /dist/watchers-portal /usr/share/nginx/html
 EXPOSE 4200
+CMD ["nginx", "-g", "daemon off;"]

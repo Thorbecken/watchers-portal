@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  angular-frontend:
+    container_name: watchers-portal
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - NODE_ENV=production
+

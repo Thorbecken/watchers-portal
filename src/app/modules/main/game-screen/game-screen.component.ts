@@ -8,7 +8,7 @@ import { Coordinate } from 'src/app/shared/models/world';
 })
 export class GameScreenComponent implements OnInit {
 
-  currentCoordinate: Coordinate = null;
+  currentCoordinate: Coordinate;
   currentView: string = 'TILE';
 
   constructor() { }

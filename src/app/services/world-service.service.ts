@@ -12,7 +12,7 @@ export class WorldService {
   constructor(private http: HttpClient) {
   }
 
-  getWorld(worldId): Observable<World> {
+  getWorld(worldId: string): Observable<World> {
     let world: Observable<World> =  this.http.get<World>(this.url + worldId);
     return world;
   }
