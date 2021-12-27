@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiHost: (window as { [key: string]: any })["env"]["apiHost"] || "default"
 };
