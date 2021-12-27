@@ -15,6 +15,7 @@ import { ActorImageSelectorPipe } from './pipes/actor-image-selector.pipe';
 import { GameScreenComponent } from './modules/main/game-screen/game-screen.component';
 import { TopMenuComponent } from './modules/main/top-menu/top-menu.component';
 import { ContinentalColoringPipe } from './pipes/continental-coloring.pipe';
+import { CoordinateSelectorPipe } from './pipes/coordinate-selector.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ContinentalColoringPipe } from './pipes/continental-coloring.pipe';
     ActorImageSelectorPipe,
     GameScreenComponent,
     TopMenuComponent,
-    ContinentalColoringPipe
+    ContinentalColoringPipe,
+    CoordinateSelectorPipe
   ],
   imports: [
     BrowserModule,

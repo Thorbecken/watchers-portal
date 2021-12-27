@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Coordinate, Tile } from 'src/app/shared/models/world';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ContinentalColoringPipe } from 'src/app/pipes/continental-coloring.pipe';
+import { CoordinateHolder, Holder } from 'src/app/shared/models/coordinateholder';
 
 @Component({
   selector: 'app-coordinate-holder',
@@ -10,8 +11,8 @@ import { ContinentalColoringPipe } from 'src/app/pipes/continental-coloring.pipe
 })
 
 export class TileHolderComponent implements OnInit {
-  @Input('coordinateHolder')
-  public coordinate: Coordinate;
+  @Input('holder')
+  public holder: Holder;
   
   @Input('currentView')
   public currentView: string;
@@ -19,7 +20,7 @@ export class TileHolderComponent implements OnInit {
   @Output() coordinateSelected = new EventEmitter<Coordinate>();
 
   onClickMe() {
-    this.coordinateSelected.emit(this.coordinate);
+    this.coordinateSelected.emit(this.holder.coordinate);
   }
 
 

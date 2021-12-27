@@ -1,8 +1,8 @@
 <div class="words" *ngIf="world">World Loaded!</div>
 <table class="table" *ngIf="world">
-  <td class="column" *ngFor="let coordinateColumn of world | xColumnPipe">
-    <div class="row" *ngFor="let coordinate of coordinateColumn">
-      <app-coordinate-holder class="box" [coordinateHolder]=coordinate [currentView]=currentView (coordinateSelected)="coordinateSelected($event)"></app-coordinate-holder>
+  <td class="column" *ngFor="let y of coordinateHolder.yCoordinates">
+    <div class="row" *ngFor="let x of coordinateHolder.xCoordinates">
+      <app-coordinate-holder class="box" [holder]="coordinateHolder | coordinateSelector: 1 : 1" [currentView]=currentView (coordinateSelected)="coordinateSelected($event)"></app-coordinate-holder>
     </div>
   </td>
 </table>

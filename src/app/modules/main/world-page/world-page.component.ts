@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { World, Coordinate } from 'src/app/shared/models/world';
 import { WorldService } from 'src/app/services/world-service.service';
+import { CoordinateHolder } from 'src/app/shared/models/coordinateholder';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { WorldService } from 'src/app/services/world-service.service';
 export class WorldPageComponent implements OnInit {
   title = 'WorldPage';
   public world: World;
+  public coordinateHolder: CoordinateHolder;
+
   @Output() currentSelectedCoordinate = new EventEmitter<Coordinate>();
   
   @Input('currentView')
@@ -30,6 +33,7 @@ export class WorldPageComponent implements OnInit {
         this.world = data
         console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
         console.log('x size = ' +this.world.xSize + ' y size = ' + this.world.ySize)
+        this.coordinateHolder = new CoordinateHolder(this.world);
         }
       );
 
@@ -51,6 +55,7 @@ startTimer() {
       .subscribe(data => {
         console.log('setting world')
         this.world = data
+        this.coordinateHolder.refresh(this.world);
         console.log('World size is ' + this.world.coordinates.length + ' coordinates.')
         console.log('x size = ' +this.world.xSize + ' y size = ' + this.world.ySize)
         }

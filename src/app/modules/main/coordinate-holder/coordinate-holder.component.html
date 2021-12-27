@@ -1,17 +1,17 @@
 <div (click)="onClickMe()">
   <div class="coordinate">
   <div *ngIf="(currentView == 'TILE')">  
-    <div *ngIf="(coordinate.actors.length == 0)">
-      <img class="surface" [src]="coordinate.tile | imageSelector | sanitizedImage">
+    <div *ngIf="(holder.coordinate.actors.length == 0)">
+      <img class="surface" [src]="holder.coordinate.tile | imageSelector | sanitizedImage">
     </div>
-      <div *ngIf="(coordinate.actors.length != 0)">
-        <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
-        <img class="surface2" [src]="coordinate.tile | imageSelector | sanitizedImage">
+      <div *ngIf="(holder.coordinate.actors.length != 0)">
+        <img class="actor" [src]="holder.coordinate.actors | actorImageSelector | sanitizedImage">
+        <img class="surface2" [src]="holder.coordinate.tile | imageSelector | sanitizedImage">
       </div>
     </div>
   </div>
 
   <div *ngIf="(currentView == 'CONTINENT')">
-    <img class="continentColor" [src]="coordinate | continentalColoring | sanitizedImage">
+    <img class="continentColor" [src]="holder.coordinate | continentalColoring | sanitizedImage">
   </div>
 </div>
