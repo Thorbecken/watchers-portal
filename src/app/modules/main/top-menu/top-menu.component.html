@@ -4,7 +4,10 @@
   <button (click)="switchToContinentalView()">Continents</button>
 </div>
 <div *ngIf="coordinate != null">
-  <div class="words">coordinates are: {{coordinate.xCoord}}, {{coordinate.yCoord}}. Surfacetype: {{coordinate.tile.surfaceType}}. Height: {{coordinate.tile.height}}. Current food: {{coordinate.tile.biome.currentFood}}. Currently contains {{coordinate.actors.length}} actor(s). Current airmoisture is: {{coordinate.climate.currentCloud.airMoisture}} .</div>
+  <div class="words">coordinates are: {{coordinate.xCoord}}, {{coordinate.yCoord}}. Surfacetype: {{coordinate.tile.surfaceType}}. Height: {{coordinate.tile.height}}. Current food: {{coordinate.tile.biome.currentFood}}. Currently contains {{coordinate.actors.length}} actor(s). Current airmoisture is: {{coordinate.climate.skyTile.airMoisture}} .</div>
+  <div *ngFor="let incommingAircurrent of coordinate.climate.skyTile.incommingAircurrents.aircurrentList">
+    <div class="words"> {{incommingAircurrent.aircurrentType}} aircurrent with {{incommingAircurrent.currentStrength}} strength , started from {{incommingAircurrent.startingXCoordinate}} X, {{incommingAircurrent.startingYCoordinate}} Y </div>
+  </div>
   <button (click)="seedLife()">Seed Life</button>
 </div>
 
