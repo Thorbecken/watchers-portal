@@ -20,11 +20,34 @@ export class Coordinate {
 }
 
 export class Climate {
-    currentCloud: Cloud;
+    skyTile: Skytile;
 }
 
-export class Cloud {
+export class Skytile {
     airMoisture: Number;
+    outgoingAircurrents: OutgoingAircurrent;
+    incommingAircurrents: IncommingAircurrents;
+}
+
+export class OutgoingAircurrent {
+    aircurrentList: Aircurrent[];
+}
+
+export class IncommingAircurrents {
+    aircurrentList: Aircurrent[];
+}
+
+export class Aircurrent {
+    currentStrength: Number;
+    aircurrentType: AircurrentType;
+    startingXCoordinate: Number;
+    endingXCoordinate: Number;
+    startingYCoordinate: Number;
+    endingYCoordinate: Number;
+}
+
+export enum AircurrentType{
+    LATITUDAL, LONGITUDAL
 }
 
 export class Continent {
