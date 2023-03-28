@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Coordinate, Tile } from 'src/app/shared/models/world';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ContinentalColoringPipe } from 'src/app/pipes/continental-coloring.pipe';
 
 @Component({
   selector: 'app-coordinate-holder',
