@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "watchers-portal"
+  "cli": {
+    "analytics": false
+  }
 }
