@@ -1,17 +1,46 @@
 <div (click)="onClickMe()">
   <div class="coordinate">
-  <div *ngIf="(currentView == 'TILE')">  
-    <div *ngIf="(coordinate.actors.length == 0)">
-      <img class="surface" [src]="coordinate.tile | imageSelector | sanitizedImage">
-    </div>
+    <div *ngIf="(currentView == 'TILE')">
+      <div *ngIf="(coordinate.actors.length == 0)">
+        <img class="earth" [src]="coordinate.tile | earthSelector | sanitizedImage">
+        <div
+          *ngIf="coordinate.tile.surfaceType == 'OCEAN' || coordinate.tile.surfaceType == 'SEA' || coordinate.tile.surfaceType == 'COASTAL'">
+          <img class="water" [src]="coordinate.tile | waterSelector | sanitizedGif">
+        </div>
+        <div
+          *ngIf="coordinate.tile.river && coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN'">
+          <img class="water" [src]="coordinate.tile | riverSelector | sanitizedImage">
+        </div>
+        <div *ngIf="coordinate.tile.biome.grassFlora && (coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN')">
+          <img class="grass" [src]="coordinate.tile | grassSelector | sanitizedImage">
+        </div>
+        <!-- <img class="snow" [src]="coordinate.tile | snowSelector | sanitizedImage"> -->
+        <div *ngIf="coordinate.tile.biome.treeFlora" && (coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN')>
+          <img class="tree" [src]="coordinate.tile | treeSelector | sanitizedImage">
+        </div>
+      </div>
       <div *ngIf="(coordinate.actors.length != 0)">
+        <img class="earth" [src]="coordinate.tile | earthSelector | sanitizedImage">
+        <div
+          *ngIf="coordinate.tile.surfaceType == 'OCEAN' || coordinate.tile.surfaceType == 'SEA' || coordinate.tile.surfaceType == 'COASTAL'">
+          <img class="water" [src]="coordinate.tile | waterSelector | sanitizedGif">
+        </div>
+        <div
+          *ngIf="coordinate.tile.river && coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN'">
+          <img class="water" [src]="coordinate.tile | riverSelector | sanitizedImage">
+        </div>
+        <div *ngIf="coordinate.tile.biome.grassFlora && (coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN')">
+          <img class="grass" [src]="coordinate.tile | grassSelector | sanitizedImage">
+        </div>
+        <!-- <img class="snow" [src]="coordinate.tile | snowSelector | sanitizedImage"> -->
+        <div *ngIf="coordinate.tile.biome.treeFlora && (coordinate.tile.surfaceType == 'PLAIN' || coordinate.tile.surfaceType == 'HILL' || coordinate.tile.surfaceType == 'MOUNTAIN')">
+          <img class="tree" [src]="coordinate.tile | treeSelector | sanitizedImage">
+        </div>
         <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
-        <img class="surface2" [src]="coordinate.tile | imageSelector | sanitizedImage">
       </div>
     </div>
-  </div>
-
-  <div *ngIf="(currentView == 'CONTINENT')">
-    <img class="continentColor" [src]="coordinate | continentalColoring | sanitizedImage">
+    <div *ngIf="(currentView == 'CONTINENT')">
+      <img class="continentColor" [src]="coordinate | continentalColoring | sanitizedImage">
+    </div>
   </div>
 </div>

@@ -14,15 +14,44 @@
     width: 32px;
     height: 32px;
 }
-.surface2{
+.earth{
     position: absolute;
     z-index: 2;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.water{
+    position: absolute;
+    z-index: 3;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.grass{
+    position: absolute;
+    z-index: 4;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.snow{
+    position: absolute;
+    z-index: 5;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.tree{
+    position: absolute;
+    z-index: 6;
+    background: transparent;
     width: 32px;
     height: 32px;
 }
 .actor{
     position: absolute;
-    z-index: 3;
+    z-index: 10;
     background: transparent;
     width: 32px;
     height: 32px;

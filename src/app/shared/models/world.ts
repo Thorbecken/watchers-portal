@@ -4,12 +4,6 @@ export class World {
     coordinates: Coordinate[];
 }
 
-export class Tile {
-    height: number;
-    biome: Biome;
-    surfaceType: SurfaceType;
-}
-
 export class Coordinate {
     continent: Continent;
     xCoord: number;
@@ -19,7 +13,22 @@ export class Coordinate {
     climate: Climate;
 }
 
+export class Tile {
+    height: number;
+    biome: Biome;
+    surfaceType: SurfaceType;
+    rockType: RockType;
+    river: River;
+}
+
+export class River {
+    riverThroughput: number;
+}
+
 export class Climate {
+    longitude: number;
+    latitude: number;
+    meanTemperature: number;
     skyTile: Skytile;
 }
 
@@ -52,23 +61,26 @@ export enum AircurrentType{
 
 export class Continent {
     continentId: number;
+    type: SurfaceType;
+    basicRockType: RockType;
 }
 
 export class Biome {
-    biomeTypeEnum: BiomeTypeEnum;
-    currentFood: number;
-    maxFood: number;
-    fertillity: number;
+    grassBiomass: number;
+    grassFlora: Flora;
+    treeBiomass: number;
+    treeFlora: Flora;
+}
+
+export enum Flora {
+    GRASS = "GRASS",
+    TREE = "TREE"
 }
 
 export class Actor {
     status: StateType;
     naturalHabitat: NaturalHabitat;
     foodReserve: number;
-    maxFood: number;
-    foraging: number;
-    metabolisme: number;
-    movement: number;
     animalType: AnimalType;
 }
 
@@ -89,12 +101,24 @@ export enum AnimalType {
 }
 
 export enum SurfaceType {
-    MOUNTAIN = "MOUNTAIN",
-    HILL = "HILL",
+    OCEAN = "OCEAN" ,
+    SEA = "SEA",
+    COASTAL = "COASTAL" ,
+    LAKE = "LAKE",
+    LARGE_RIVER ="LARGE_RIVER",
     PLAIN = "PLAIN",
-    OCEANIC = "OCEANIC" ,
-    COASTAL = "COASTAL",
-    DEEP_OCEAN = "DEEP_OCEAN" 
+    HILL = "HILL",
+    MOUNTAIN = "MOUNTAIN",
+}
+
+export enum RockType {
+    GRANITE = "GRANITE",
+    QUARTZ = "QUARTZ",
+    ORANGE_SANDSTONE = "ORANGE_SANDSTONE",
+    RED_SANDSTONE = "RED_SANDSTONE" ,
+    BROWNSTONE = "BROWNSTONE",
+    BASALT = "BASALT",
+    CHALK = "CHALK" 
 }
 
 export enum BiomeTypeEnum {

@@ -2,5 +2,5 @@
     window["env"] = window["env"] || {};
   
     // Environment variables
-    window["env"]["apiHost"] = "https://localhost:8080";
+    window["env"]["apiHost"] = "http://localhost:8080";
   })(this);

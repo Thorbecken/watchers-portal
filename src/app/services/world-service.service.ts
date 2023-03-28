@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class WorldService {
- url = environment.apiHost || '/world/';
+  url = environment.apiHost + '/world/';
 
   constructor(private http: HttpClient) {
   }

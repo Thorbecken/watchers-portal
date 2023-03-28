@@ -36,7 +36,7 @@ export class WorldPageComponent implements OnInit {
       this.startTimer();
   } 
 
-  timerTime: number = 10;
+  timerTime: number = 120;
   timeLeft: number = this.timerTime;
   interval: any;
 
