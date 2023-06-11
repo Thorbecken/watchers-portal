@@ -10,7 +10,6 @@ export class RiverSelectorPipe implements PipeTransform {
     switch(tile.surfaceType){
       case SurfaceType.LAKE:
       case SurfaceType.LARGE_RIVER:
-        return 'terrain/water/water_sea'
       case SurfaceType.PLAIN:
         return 'terrain/plain/plain_river'
       case SurfaceType.HILL:

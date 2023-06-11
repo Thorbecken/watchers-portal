@@ -21,21 +21,21 @@
     width: 32px;
     height: 32px;
 }
-.water{
+.grass{
     position: absolute;
     z-index: 3;
     background: transparent;
     width: 32px;
     height: 32px;
 }
-.grass{
+.snow{
     position: absolute;
     z-index: 4;
     background: transparent;
     width: 32px;
     height: 32px;
 }
-.snow{
+.water{
     position: absolute;
     z-index: 5;
     background: transparent;
@@ -49,6 +49,20 @@
     width: 32px;
     height: 32px;
 }
+.sea{
+    position: absolute;
+    z-index: 7;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.waves{
+    position: absolute;
+    z-index: 8;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
 .actor{
     position: absolute;
     z-index: 10;
@@ -56,9 +70,16 @@
     width: 32px;
     height: 32px;
 }
-.continentColor{
+.pointOfInterest{
     position: absolute;
-    z-index: 2;
+    z-index: 11;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+}
+.viewClass{
+    position: absolute;
+    z-index: 99;
     width: 32px;
     height: 32px;
 }

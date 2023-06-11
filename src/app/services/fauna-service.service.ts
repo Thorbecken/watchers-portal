@@ -6,8 +6,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ActorService {
-  url = environment.apiHost || '/actors/'; 
+export class FaunaService {
+  url = environment.apiHost + '/fauna/'; 
 
   constructor(private http: HttpClient) { }
 

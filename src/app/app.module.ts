@@ -20,6 +20,11 @@ import { WaterSelectorPipe } from './pipes/terain/water-selector.pipe';
 import { GrassSelectorPipe } from './pipes/terain/grass-selector.pipe';
 import { TreeSelectorPipe } from './pipes/terain/tree-selector.pipe';
 import { EarthSelectorPipe } from './pipes/terain/earth-selector.pipe';
+import { FlowDirectionColoringPipe } from './pipes/flow-direction-coloring.pipe';
+import { PointOfInterestSelectorPipe } from './pipes/point-of-interest.pipe';
+import { RainMoistureColoringPipe } from './pipes/rain-moisture-coloring.pipe';
+import { AirMoistureColoringPipe } from './pipes/air-moisture-coloring.pipe';
+import { PlantBiomassColoringPipe } from './pipes/plant-biomass-coloring.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { EarthSelectorPipe } from './pipes/terain/earth-selector.pipe';
     ActorImageSelectorPipe,
     GameScreenComponent,
     TopMenuComponent,
-    ContinentalColoringPipe
+    ContinentalColoringPipe,
+    FlowDirectionColoringPipe,
+    RainMoistureColoringPipe,
+    AirMoistureColoringPipe,
+    PlantBiomassColoringPipe,
+    PointOfInterestSelectorPipe
   ],
   imports: [
     BrowserModule,

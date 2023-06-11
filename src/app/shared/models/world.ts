@@ -11,6 +11,7 @@ export class Coordinate {
     tile: Tile;
     actors: Actor[];
     climate: Climate;
+    pointOfInterest: PointOfInterest;
 }
 
 export class Tile {
@@ -19,6 +20,19 @@ export class Tile {
     surfaceType: SurfaceType;
     rockType: RockType;
     river: River;
+    rainfall: number;
+    downFlowAmount: number;
+    flowDirection: string;
+    pointOfInterest: PointOfInterest;
+}
+
+export class PointOfInterest{
+    type: string;
+    flora: string;
+}
+
+export enum Direction {
+    UP, RIGHT, DOWN, LEFT
 }
 
 export class River {
@@ -67,14 +81,9 @@ export class Continent {
 
 export class Biome {
     grassBiomass: number;
-    grassFlora: Flora;
+    grassFlora: string;
     treeBiomass: number;
-    treeFlora: Flora;
-}
-
-export enum Flora {
-    GRASS = "GRASS",
-    TREE = "TREE"
+    treeFlora: string;
 }
 
 export class Actor {

@@ -8,6 +8,8 @@ export class GrassSelectorPipe implements PipeTransform {
 
   transform(tile: Tile): string {
     switch (tile.surfaceType) {
+      case SurfaceType.LAKE:
+      case SurfaceType.LARGE_RIVER:
       case SurfaceType.PLAIN:
         return 'terrain/plain/plain_grass';
       case SurfaceType.HILL:
