@@ -36,22 +36,22 @@ export class TopMenuComponent implements OnInit {
   }
 
   addHotspot(){
-    this._pointOfInterestService.createHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    this._pointOfInterestService.createHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Created a hotspot at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
   removeHotspot(){
-    this._pointOfInterestService.deleteHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    this._pointOfInterestService.deleteHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Deleted a hotspot at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
   addTectonicPlume(){
-    this._pointOfInterestService.createTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    this._pointOfInterestService.createTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Created a tectonic plume at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
   removeTectonicPlume(){
-    this._pointOfInterestService.deleteTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    this._pointOfInterestService.deleteTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Deleted a tectonic plume at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
