@@ -11,10 +11,17 @@ export class FaunaService {
 
   constructor(private http: HttpClient) { }
 
-  seedLife(worldId: number, xCoord: number, yCoord: number): Observable<Object> {
-    let endUrl: string = this.url + worldId + "/" + xCoord + "/" + yCoord
+  seedLife(xCoord: number, yCoord: number): Observable<Object> {
+    let endUrl: string = this.url + xCoord + "/" + yCoord
     console.log(endUrl)
     
-    return this.http.get<Object>(endUrl);
+    return this.http.put<Object>(endUrl, "");
+  }
+
+  removeLife(xCoord: number, yCoord: number): Observable<Object> {
+    let endUrl: string = this.url + xCoord + "/" + yCoord
+    console.log(endUrl)
+    
+    return this.http.delete<Object>(endUrl);
   }
 }

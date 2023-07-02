@@ -43,10 +43,6 @@ export class Climate {
     longitude: number;
     latitude: number;
     meanTemperature: number;
-    skyTile: Skytile;
-}
-
-export class Skytile {
     airMoisture: Number;
     outgoingAircurrents: OutgoingAircurrent;
     incommingAircurrents: IncommingAircurrents;

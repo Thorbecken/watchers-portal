@@ -8,7 +8,7 @@ export class AirMoistureColoringPipe implements PipeTransform {
 
   transform(coordinate: Coordinate): string {
     let prefix: string = 'color/color-';
-    let moisture = coordinate.climate.skyTile.airMoisture;
+    let moisture = coordinate.climate.airMoisture;
     if (moisture > 90)
     return prefix + '15';
     if (moisture > 80)

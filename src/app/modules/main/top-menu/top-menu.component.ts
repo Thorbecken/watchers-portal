@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FaunaService} from 'src/app/services/fauna-service.service';
 import { FloraService } from 'src/app/services/flora-service.service';
+import { PointOfInterestService } from 'src/app/services/points-of-interest-service';
 import { Coordinate } from 'src/app/shared/models/world';
 
 @Component({
@@ -17,7 +18,7 @@ export class TopMenuComponent implements OnInit {
   @Output() currentSelectedView = new EventEmitter<string>();
   public currentView: string;
 
-  constructor(private _faunaService: FaunaService, private _floraService: FloraService) { }
+  constructor(private _faunaService: FaunaService, private _floraService: FloraService, private _pointOfInterestService: PointOfInterestService) { }
 
   ngOnInit() {
     this.currentView = 'TILE';
@@ -25,13 +26,33 @@ export class TopMenuComponent implements OnInit {
   }
 
   seedFauna(){
-    this._faunaService.seedLife(1, this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
+    this._faunaService.seedLife(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Seeded life at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
   seedFlora(){
-    this._floraService.seedLife(1, this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
+    this._floraService.seedLife(this.coordinate.xCoord, this.coordinate.yCoord).subscribe();
     console.log("Seeded life at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
+  }
+
+  addHotspot(){
+    this._pointOfInterestService.createHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    console.log("Created a hotspot at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
+  }
+
+  removeHotspot(){
+    this._pointOfInterestService.deleteHotspot(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    console.log("Deleted a hotspot at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
+  }
+
+  addTectonicPlume(){
+    this._pointOfInterestService.createTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    console.log("Created a tectonic plume at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
+  }
+
+  removeTectonicPlume(){
+    this._pointOfInterestService.deleteTectonicPlume(this.coordinate.xCoord, this.coordinate.yCoord).subscribe;
+    console.log("Deleted a tectonic plume at coordinate: " + this.coordinate.xCoord + "x ," + this.coordinate.yCoord + "y");
   }
 
   switchToTileView(){
