@@ -40,6 +40,22 @@
   <div *ngIf="hoveredFlora || hoveredFauna" class="tooltip-column">
     <div *ngIf="hoveredFlora" class="flora-details tooltip">
       <h3>Flora Details</h3>
+      <div *ngIf="hoveredFlora.type === 'TREE'">
+        <div *ngIf="hoveredFlora.natural_habitat === 'TERRESTRIAL'">
+          <img [src]="'terrain/plain/plain_tree_' + hoveredFlora.name | lowercase | sanitizedImage">
+        </div>
+        <div *ngIf="hoveredFlora.natural_habitat === 'SALT_WATER'">
+          <img [src]="'terrain/water/' + hoveredFlora.name | lowercase | sanitizedGif">
+        </div>
+      </div>
+      <div *ngIf="hoveredFlora.type === 'GRASS'">
+        <div *ngIf="hoveredFlora.natural_habitat === 'TERRESTRIAL'">
+          <img [src]="'terrain/plain/plain_grass' | sanitizedImage">
+        </div>
+        <div *ngIf="hoveredFlora.natural_habitat === 'SALT_WATER'">
+          <img [src]="'terrain/water/' + hoveredFlora.name | lowercase | sanitizedGif">
+        </div>
+      </div>
       <p><strong>Type:</strong> {{ hoveredFlora.type }}</p>
       <p><strong>Natural Habitat:</strong> {{ hoveredFlora.natural_habitat }}</p>
       <p><strong>Min Temperature:</strong> {{ hoveredFlora.min_temperature }}°C</p>
@@ -51,6 +67,7 @@
 
     <div *ngIf="hoveredFauna" class="fauna-details tooltip">
       <h3>Fauna Details</h3>
+      <img [src]="'animals/Animal_' + hoveredFauna.name | sanitizedImage">
       <p><strong>Max Food Reserve:</strong> {{ hoveredFauna.max_food_reserve }}</p>
       <p><strong>Foraging Rate:</strong> {{ hoveredFauna.foraging }}</p>
       <p><strong>Metabolism:</strong> {{ hoveredFauna.metabolism }}</p>
