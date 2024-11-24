@@ -45,14 +45,14 @@ export class Climate {
     meanTemperature: number;
     airMoisture: Number;
     outgoingAircurrents: OutgoingAircurrent;
-    incommingAircurrents: IncommingAircurrents;
+    incomingAircurrents: IncomingAircurrents;
 }
 
 export class OutgoingAircurrent {
     aircurrentList: Aircurrent[];
 }
 
-export class IncommingAircurrents {
+export class IncomingAircurrents {
     aircurrentList: Aircurrent[];
 }
 
@@ -77,9 +77,9 @@ export class Continent {
 
 export class Biome {
     grassBiomass: number;
-    grassFlora: string;
+    grassFlora: Flora | null;
     treeBiomass: number;
-    treeFlora: string;
+    treeFlora: Flora | null;
 }
 
 export class Actor {
@@ -100,9 +100,14 @@ export enum NaturalHabitat {
     ALL = "ALL"
 }
 
-export enum AnimalType {
-    RABBIT = "RABBIT",
-    WHALE = "WHALE"
+export interface AnimalType {
+    name: string;
+    max_food_reserve: number;
+    foraging: number;
+    metabolism: number;
+    reproduction_rate: number;
+    movement: number;
+    natural_habitat: string;
 }
 
 export enum SurfaceType {
@@ -127,17 +132,27 @@ export enum RockType {
 }
 
 export enum BiomeTypeEnum {
-    OCEAN = "OCEAN", SEA = "SEA", COASTAL = "COASTAL",
-
-    POLAR_MOUNTAIN_DESERT = "POLAR_MOUNTAIN_DESERT", POLAR_MOUNTAIN_TUNDRA = "POLAR_MOUNTAIN_TUNDRA", POLAR_MOUNTAIN_TAIGA = "POLAR_MOUNTAIN_TAIGA",
-    POLAR_HILL_DESERT = "POLAR_HILL_DESERT", POLAR_HILL_TUNDRA = "POLAR_HILL_TUNDRA", POLAR_HILL_TAIGA = "POLAR_HILL_TAIGA",
-    POLAR_PLAIN_DESERT = "POLAR_PLAIN_DESERT", POLAR_PLAIN_TUNDRA = "POLAR_PLAIN_TUNDRA", POLAR_PLAIN_TAIGA = "POLAR_PLAIN_TAIGA",
-
-    TEMPERATAE_MOUNTAIN_DESERT = "TEMPERATAE_MOUNTAIN_DESERT", TEMPERATE_MOUNTAIN_GRASSLAND = "TEMPERATE_MOUNTAIN_GRASSLAND",  TEMPERATE_MOUNTAIN_FOREST = "TEMPERATE_MOUNTAIN_FOREST",
-    TEMPERATE_HILL_DESERT = "TEMPERATE_HILL_DESERT", TEMPERATE_HILL_GRASSLAND = "TEMPERATE_HILL_GRASSLAND", TEMPERATE_HILL_FOREST = "TEMPERATE_HILL_FOREST",
-    TEMPERATE_PLAIN_DESERT = "TEMPERATE_PLAIN_DESERT", TEMPERATE_PLAIN_GRASSLAND = "TEMPERATE_PLAIN_GRASSLAND", TEMPERATE_PLAIN_FOREST ="TEMPERATE_PLAIN_FOREST",
-
-    TROPICAL_MOUNTAIN_DESERT = "TROPICAL_MOUNTAIN_DESERT", TROPICAL_MOUNTAIN_SAVANAH = "TROPICAL_MOUNTAIN_SAVANAH", TROPICAL_MOUNTAIN_JUNGLE = "TROPICAL_MOUNTAIN_JUNGLE",
-    TROPICAL_HILL_DESERT = "TROPICAL_HILL_DESERT", TROPICAL_HILL_SAVANAH = "TROPICAL_HILL_SAVANAH", TROPICAL_HILL_JUNGLE ="TROPICAL_HILL_JUNGLE",
-    TROPICAL_PLAIN_DESERT = "TROPICAL_PLAIN_DESERT", TROPICAL_PLAIN_SAVANAH = "TROPICAL_PLAIN_SAVANAH", TROPICAL_PLAIN_JUNGLE = "TROPICAL_PLAIN_JUNGLE"
+    OCEAN = "OCEAN", SEA = "SEA", COASTAL = "COASTAL"
 }
+
+export interface Fauna {
+    name: string;
+    max_food_reserve: number;
+    foraging: number;
+    metabolism: number;
+    reproduction_rate: number;
+    movement: number;
+    natural_habitat: string;
+  }
+
+  export interface Flora {
+    name: string;
+    natural_habitat: string;
+    type: string;
+    image: string;
+    min_temperature: number;
+    max_temperature: number;
+    water_intake: number;
+    growth_rate: number;
+    max_biomass: number;
+  }

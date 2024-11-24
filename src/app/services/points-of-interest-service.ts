@@ -18,13 +18,6 @@ export class PointOfInterestService {
     return this.http.put<Object>(endUrl, "");
   }
 
-  deleteHotspot(xCoord: number, yCoord: number): Observable<Object> {
-    let endUrl: string = this.url + '/hotspot/' + xCoord + "/" + yCoord
-    console.log(endUrl)
-    
-    return this.http.delete<Object>(endUrl);
-  }
-
   createTectonicPlume(xCoord: number, yCoord: number): Observable<Object> {
     let endUrl: string = this.url + '/tectonicPlume/' + xCoord + "/" + yCoord
     console.log(endUrl)
@@ -32,8 +25,8 @@ export class PointOfInterestService {
     return this.http.put<Object>(endUrl, "");
   }
 
-  deleteTectonicPlume(xCoord: number, yCoord: number): Observable<Object> {
-    let endUrl: string = this.url + '/tectonicPlume/' + xCoord + "/" + yCoord
+  deletePointOfInterest(xCoord: number, yCoord: number): Observable<Object> {
+    let endUrl: string = this.url + '/' + xCoord + "/" + yCoord
     console.log(endUrl)
     
     return this.http.delete<Object>(endUrl);

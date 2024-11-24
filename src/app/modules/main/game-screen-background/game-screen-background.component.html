@@ -1,0 +1,11 @@
+<top-menu
+  [currentCoordinate]="currentCoordinate"
+  (currentSelectedView)="currentSelectedView($event)"
+></top-menu>
+<world-page-background
+  (currentSelectedCoordinate)="currentSelectedCoordinate($event)" 
+  (worldInteractionCommand)="worldInteractionCommand($event)"
+  [currentView]="currentView"
+  [floraList]="floraList"
+  [faunaList]="faunaList"
+></world-page-background>

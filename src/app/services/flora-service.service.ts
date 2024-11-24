@@ -2,26 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Flora } from '../shared/models/world';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FloraService {
-  url = environment.apiHost + '/flora/'; 
+  url = environment.apiHost; 
 
   constructor(private http: HttpClient) { }
-
-  seedLife(xCoord: number, yCoord: number): Observable<Object> {
-    let endUrl: string = this.url + xCoord + "/" + yCoord
-    console.log(endUrl)
-    
-    return this.http.put<Object>(endUrl, "");
+  
+  getFlora(): Observable<Flora[]> {
+    return this.http.get<Flora[]>(`${this.url}/flora`);
   }
 
-  removeLife(xCoord: number, yCoord: number): Observable<Object> {
-    let endUrl: string = this.url + xCoord + "/" + yCoord
-    console.log(endUrl)
-    
-    return this.http.delete<Object>(endUrl);
+  placeFlora(x: number, y: number, type: string): Observable<any> {
+    return this.http.put(`${this.url}/flora/${x}/${y}/${type}`, {});
   }
 }

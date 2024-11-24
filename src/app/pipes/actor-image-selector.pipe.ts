@@ -8,12 +8,7 @@ export class ActorImageSelectorPipe implements PipeTransform {
 
   transform(actors: Actor[]): string {
     for (const actor of actors) {
-      if(actor.animalType == "RABBIT")
-      {
-        return 'animals/Rabbit';
-      } else if(actor.animalType == "WHALE") {
-        return 'animals/Whale';
-      }
+      return 'animals/Animal_' + actor.animalType.name;
     }
     return '';
   }

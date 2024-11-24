@@ -1,0 +1,30 @@
+.table{
+   border-spacing: 0px;
+}
+
+.column{
+    width: 32px;
+    min-width: 32px;
+    margin: 0px;
+    padding: 0px;
+    float: none;
+    clear: none;
+    border: none;
+}
+
+.row{
+    height: 32px;
+    min-height: 32px;
+    margin: 0px;
+    padding: 0px;
+    float: none;
+    clear: none;
+    border: none;
+}
+.box{
+    height: 32px;
+    width: 32px;
+}
+.words{
+    color: hotpink
+}

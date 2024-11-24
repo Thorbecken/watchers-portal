@@ -25,23 +25,19 @@
     <div class="words">coordinates are: {{coordinate.xCoord}}, {{coordinate.yCoord}}. Surfacetype:
       {{coordinate.tile.surfaceType}}. Height: {{coordinate.tile.height}}. Current food:
       {{coordinate.tile.biome.grassBiomass + coordinate.tile.biome.treeBiomass}}. Currently contains
-      {{coordinate.actors.length}} actor(s). Current airmoisture is: {{coordinate.climate.airMoisture}} .</div>
-    <div class="words">surfaceType: {{coordinate.tile.surfaceType}}, rockType: {{coordinate.tile.rockType}}, river:
-      {{coordinate.tile.river}}, grassFlora: {{coordinate.tile.biome.grassFlora}}, treeFlora:
-      {{coordinate.tile.biome.treeFlora}}, rain: {{coordinate.tile.rainfall}}, downFlowAmount:
-      {{coordinate.tile.downFlowAmount}}, flowDirection: {{coordinate.tile.flowDirection}}, airmoisture:
-      {{coordinate.climate.airMoisture}}</div>
-    <div *ngFor="let incommingAircurrent of coordinate.climate.incommingAircurrents.aircurrentList">
-      <div class="words"> {{incommingAircurrent.aircurrentType}} aircurrent with {{incommingAircurrent.currentStrength}}
-        strength , started from {{incommingAircurrent.startingXCoordinate}} X,
-        {{incommingAircurrent.startingYCoordinate}} Y </div>
+      {{coordinate.actors.length}} actor(s). Current airmoisture is: {{coordinate.climate.airMoisture}}.
     </div>
-    <button (click)="seedFauna()">Seed fauna</button>
-    <button (click)="seedFlora()">Seed flora</button>
-    <button (click)="addHotspot()">Add hotspot</button>
-    <button (click)="removeHotspot()">Remove hotspot</button>
-    <button (click)="addTectonicPlume()">Add tectonic plume</button>
-    <button (click)="removeTectonicPlume()">Remove tectonic plume</button>
+    <div class="words">surfaceType: {{coordinate.tile.surfaceType}}, rockType: {{coordinate.tile.rockType}}, river:
+      {{coordinate.tile.river}}, grassFlora: {{coordinate.tile.biome.grassFlora?.name}}, treeFlora:
+      {{coordinate.tile.biome.treeFlora?.name}}, rain: {{coordinate.tile.rainfall}}, downFlowAmount:
+      {{coordinate.tile.downFlowAmount}}, flowDirection: {{coordinate.tile.flowDirection}}, airmoisture:
+      {{coordinate.climate.airMoisture}}
+    </div>
+    <div *ngFor="let incomingAircurrent of coordinate.climate.incomingAircurrents.aircurrentList">
+      <div class="words"> {{incomingAircurrent.aircurrentType}} aircurrent with {{incomingAircurrent.currentStrength}}
+        strength , started from {{incomingAircurrent.startingXCoordinate}} X,
+        {{incomingAircurrent.startingYCoordinate}} Y </div>
+    </div>
   </div>
 </div>
 

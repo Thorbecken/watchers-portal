@@ -23,16 +23,17 @@
         <div *ngIf="coordinate.tile.biome.grassFlora">
           <img class="grass" [src]="coordinate.tile | grassSelector | sanitizedImage">
         </div>
-        <img *ngIf="coordinate.climate.meanTemperature < -17" class="snow" [src]="coordinate.tile | snowSelector | sanitizedImage">
+        <img *ngIf="coordinate.climate.meanTemperature < -17" class="snow"
+          [src]="coordinate.tile | snowSelector | sanitizedImage">
         <div *ngIf="coordinate.tile.biome.treeFlora">
           <img class="tree" [src]="coordinate.tile | treeSelector | sanitizedImage">
         </div>
       </div>
       <div *ngIf="coordinate.pointOfInterest">
-          <img class="pointOfInterest" [src]="coordinate.pointOfInterest | pointOfInterestSelector | sanitizedGif">
+        <img class="pointOfInterest" [src]="coordinate.pointOfInterest | pointOfInterestSelector | sanitizedGif">
       </div>
       <div *ngIf="coordinate.tile.pointOfInterest">
-          <img class="pointOfInterest" [src]="coordinate.tile.pointOfInterest | pointOfInterestSelector | sanitizedImage">
+        <img class="pointOfInterest" [src]="coordinate.tile.pointOfInterest | pointOfInterestSelector | sanitizedImage">
       </div>
       <div *ngIf="(coordinate.actors.length != 0)">
         <img class="actor" [src]="coordinate.actors | actorImageSelector | sanitizedImage">
@@ -94,7 +95,8 @@
           <img class="earth" [src]="coordinate | rainMoistureColoring | sanitizedImage">
         </div>
         <div *ngIf="coordinate.tile.pointOfInterest && coordinate.tile.pointOfInterest.type == 'GreatFlora'">
-            <img class="pointOfInterest" [src]="coordinate.tile.pointOfInterest | pointOfInterestSelector | sanitizedImage">
+          <img class="pointOfInterest"
+            [src]="coordinate.tile.pointOfInterest | pointOfInterestSelector | sanitizedImage">
         </div>
       </div>
     </div>

@@ -1,0 +1,14 @@
+<table class="table" *ngIf="worldLoaded">
+  <td class="column" *ngFor="let coordinateMap of world | columnPipe">
+    <div class="row" *ngFor="let coordinateHolder of coordinateMap | mapPipe">
+      <app-coordinate-holder-background
+        class="box" [coordinateHolder]=coordinateHolder
+        [floraList]="floraList"
+        [faunaList]="faunaList"
+        [currentView]=currentView
+        (coordinateSelected)="coordinateSelected($event)"
+        (rightClickMenuActions)="rightClickMenuActions($event)"
+      ></app-coordinate-holder-background>
+    </div>
+  </td>
+</table>

@@ -1,0 +1,93 @@
+<div (click)="onClickMe()" (contextmenu)="onRightClick($event)">
+  <div class="coordinateHolder.coordinate">
+    <div *ngIf="(currentView == 'TILE')">
+      <div
+        *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'OCEAN' || coordinateHolder.coordinate.tile.surfaceType == 'SEA' || coordinateHolder.coordinate.tile.surfaceType == 'COASTAL'">
+        <div class="earth"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/plainSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteEarthSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+        <div class="sea"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/waterSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteWaterSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+        <img class="waves" [src]="'terrain/water/water_waves' | sanitizedGif">
+        <div *ngIf="coordinateHolder.coordinate.tile.biome.grassFlora">
+          <img class="grass" [src]="coordinateHolder.coordinate.tile | grassSelector | sanitizedGif">
+        </div>
+        <div *ngIf="coordinateHolder.coordinate.tile.biome.treeFlora">
+          <img class="tree" [src]="coordinateHolder.coordinate.tile | treeSelector | sanitizedGif">
+        </div>
+      </div>
+      <div
+        *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'LARGE_RIVER'|| coordinateHolder.coordinate.tile.surfaceType == 'LAKE'">
+        <div class="earth"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/plainSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteEarthSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+      </div>
+      <div *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'PLAIN'">
+        <div class="earth"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/plainSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteEarthSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+      </div>
+      <div *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'HILL'">
+        <div class="earth"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/hillSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteEarthSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+      </div>
+      <div *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'MOUNTAIN'">
+        <div class="earth"
+          [ngStyle]="{'background-image':'url(assets/spritesheets/mountainSpritesheet.png)', 'background-position-x': coordinateHolder.coordinate.tile | spriteEarthSelector | pixelPipe , 'height': '32px', 'width': '32px' }">
+        </div>
+      </div>
+      <div
+        *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'OCEAN' || coordinateHolder.coordinate.tile.surfaceType == 'SEA' || coordinateHolder.coordinate.tile.surfaceType == 'COASTAL'">
+
+      </div>
+      <div
+        *ngIf="coordinateHolder.coordinate.tile.surfaceType == 'PLAIN' || coordinateHolder.coordinate.tile.surfaceType == 'HILL' || coordinateHolder.coordinate.tile.surfaceType == 'MOUNTAIN' || coordinateHolder.coordinate.tile.surfaceType == 'LAKE' || coordinateHolder.coordinate.tile.surfaceType == 'LARGE_RIVER'">
+        <div *ngIf="coordinateHolder.coordinate.tile.river">
+          <div>
+            <img class=" water" [src]="coordinateHolder.coordinate.tile | riverSelector | sanitizedImage">
+          </div>
+        </div>
+        <div *ngIf="coordinateHolder.coordinate.tile.biome.grassFlora">
+          <img class="grass" [src]="coordinateHolder.coordinate.tile | grassSelector | sanitizedImage">
+        </div>
+        <img *ngIf="coordinateHolder.coordinate.climate.meanTemperature < -17" class="snow"
+          [src]="coordinateHolder.coordinate.tile | snowSelector | sanitizedImage">
+        <div *ngIf="coordinateHolder.coordinate.tile.biome.treeFlora">
+          <img class="tree" [src]="coordinateHolder.coordinate.tile | treeSelector | sanitizedImage">
+        </div>
+      </div>
+      <div *ngIf="coordinateHolder.coordinate.pointOfInterest">
+        <img class="pointOfInterest"
+          [src]="coordinateHolder.coordinate.pointOfInterest | pointOfInterestSelector | sanitizedGif">
+      </div>
+      <div *ngIf="coordinateHolder.coordinate.tile.pointOfInterest">
+        <img class="pointOfInterest"
+          [src]="coordinateHolder.coordinate.tile.pointOfInterest | pointOfInterestSelector | sanitizedImage">
+      </div>
+      <div *ngIf="(coordinateHolder.coordinate.actors.length != 0)">
+        <img class="actor" [src]="coordinateHolder.coordinate.actors | actorImageSelector | sanitizedImage">
+      </div>
+    </div>
+  </div>
+
+  <!-- Inspired by AI -->
+  <ul *ngIf="showContextMenu" class="context-menu" [style.left.px]="menuPosition.x" [style.top.px]="menuPosition.y"
+    style="position: fixed; z-index: 1000;">
+    <li (click)="onContextMenuAction('seedFlora', $event)">Seed Flora</li>
+    <li (click)="onContextMenuAction('seedFauna', $event)">Seed Fauna</li>
+    <li *ngIf="!coordinateHolder.coordinate.pointOfInterest || coordinateHolder.coordinate.tile.pointOfInterest"
+      (click)="onContextMenuAction('placeHotspot', $event)">Place Hotspot</li>
+    <li *ngIf="!coordinateHolder.coordinate.pointOfInterest || coordinateHolder.coordinate.tile.pointOfInterest"
+      (click)="onContextMenuAction('placeTectonicPlume', $event)">Place Tectonic Plume</li>
+    <li *ngIf="coordinateHolder.coordinate.pointOfInterest || coordinateHolder.coordinate.tile.pointOfInterest"
+      (click)="onContextMenuAction('removePointOfInterest', $event)">Remove Point of Interest</li>
+  </ul>
+
+  <fauna-flora-modal *ngIf="showModal" [flora]="floraList" [fauna]="faunaList" [modalType]="modalType"
+    (submitAction)="onSubmitAction($event)" (cancelAction)="onCancelAction()"
+    style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001;">
+  </fauna-flora-modal>
+
+</div>

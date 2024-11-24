@@ -1,0 +1,62 @@
+<div class="modal-overlay">
+  <div id="bert" class="modal-content">
+    <div *ngIf="flora.length > 0 && modalType === modelTypeEnum.FLORA">
+      <h2>Select Flora</h2>
+      <label for="flora">Flora</label>
+      <mat-form-field>
+        <mat-label>Flora Selectie</mat-label>
+        <mat-select id="flora" [(ngModel)]="selectedItem" (change)="onSelectionChange()"
+          (ngModelChange)="onSelectionChange()">
+          <mat-option *ngFor="let item of flora" [value]="item.name" (mouseenter)="onHoverFlora(item)"
+            (mouseleave)="onLeaveItem()">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="fauna.length > 0 && modalType === modelTypeEnum.FAUNA">
+      <h2>Select Fauna</h2>
+      <label for="fauna">Fauna</label>
+      <mat-form-field>
+        <mat-label>Fauna Selectie</mat-label>
+        <mat-select id="fauna" [(ngModel)]="selectedItem" (change)="onSelectionChange()"
+          (ngModelChange)="onSelectionChange()">
+          <mat-option *ngFor="let item of fauna" [value]="item.name" (mouseenter)="onHoverFauna(item)"
+            (mouseleave)="onLeaveItem()">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Submit en Cancel knoppen onderaan -->
+    <div class="modal-footer">
+      <button (click)="onSubmitAction()">Submit</button>
+      <button (click)="onCancelAction()">Cancel</button>
+    </div>
+  </div>
+
+  <div *ngIf="hoveredFlora || hoveredFauna" class="tooltip-column">
+    <div *ngIf="hoveredFlora" class="flora-details tooltip">
+      <h3>Flora Details</h3>
+      <p><strong>Type:</strong> {{ hoveredFlora.type }}</p>
+      <p><strong>Natural Habitat:</strong> {{ hoveredFlora.natural_habitat }}</p>
+      <p><strong>Min Temperature:</strong> {{ hoveredFlora.min_temperature }}°C</p>
+      <p><strong>Max Temperature:</strong> {{ hoveredFlora.max_temperature }}°C</p>
+      <p><strong>Water Intake:</strong> {{ hoveredFlora.water_intake }}</p>
+      <p><strong>Growth Rate:</strong> {{ hoveredFlora.growth_rate }}</p>
+      <p><strong>Max Biomass:</strong> {{ hoveredFlora.max_biomass }}</p>
+    </div>
+
+    <div *ngIf="hoveredFauna" class="fauna-details tooltip">
+      <h3>Fauna Details</h3>
+      <p><strong>Max Food Reserve:</strong> {{ hoveredFauna.max_food_reserve }}</p>
+      <p><strong>Foraging Rate:</strong> {{ hoveredFauna.foraging }}</p>
+      <p><strong>Metabolism:</strong> {{ hoveredFauna.metabolism }}</p>
+      <p><strong>Reproduction Rate:</strong> {{ hoveredFauna.reproduction_rate }}</p>
+      <p><strong>Movement:</strong> {{ hoveredFauna.movement }}</p>
+      <p><strong>Natural Habitat:</strong> {{ hoveredFauna.natural_habitat }}</p>
+    </div>
+  </div>
+</div>
