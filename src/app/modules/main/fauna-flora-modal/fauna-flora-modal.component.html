@@ -7,7 +7,7 @@
         <mat-label>Flora Selectie</mat-label>
         <mat-select id="flora" [(ngModel)]="selectedItem" (change)="onSelectionChange()"
           (ngModelChange)="onSelectionChange()">
-          <mat-option *ngFor="let item of flora" [value]="item.name" (mouseenter)="onHoverFlora(item)"
+          <mat-option *ngFor="let item of filteredFloraList" [value]="item.name" (mouseenter)="onHoverFlora(item)"
             (mouseleave)="onLeaveItem()">
             {{ item.name }}
           </mat-option>
@@ -22,7 +22,7 @@
         <mat-label>Fauna Selectie</mat-label>
         <mat-select id="fauna" [(ngModel)]="selectedItem" (change)="onSelectionChange()"
           (ngModelChange)="onSelectionChange()">
-          <mat-option *ngFor="let item of fauna" [value]="item.name" (mouseenter)="onHoverFauna(item)"
+          <mat-option *ngFor="let item of filteredFaunaList" [value]="item.name" (mouseenter)="onHoverFauna(item)"
             (mouseleave)="onLeaveItem()">
             {{ item.name }}
           </mat-option>

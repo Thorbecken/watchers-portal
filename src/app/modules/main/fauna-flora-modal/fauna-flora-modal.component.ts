@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ModalType } from 'src/app/shared/models/serviceModel';
-import { Flora, Fauna } from 'src/app/shared/models/world';
+import { Flora, Fauna, Coordinate, SurfaceType } from 'src/app/shared/models/world';
 
 // Inspired by AI
 @Component({
@@ -11,6 +11,7 @@ import { Flora, Fauna } from 'src/app/shared/models/world';
 export class FaunaFloraModalComponent {
   @Input() flora: Flora[] = [];
   @Input() fauna: Fauna[] = [];
+  @Input() coordinate: Coordinate;
   @Input() modalType: ModalType | null;
   
   @Output() submitAction = new EventEmitter<any>();
@@ -48,6 +49,42 @@ export class FaunaFloraModalComponent {
     }
   
     this.submitAction.emit(selectedItemName); 
+  }
+
+  get temperatureFilteredFloraList(): Flora[] {
+    return this.flora.filter(floraType => floraType.max_temperature >= this.coordinate.climate.meanTemperature && floraType.min_temperature <= this.coordinate.climate.meanTemperature);
+  }
+  
+  get filteredFloraList(): Flora[] {
+    return this.temperatureFilteredFloraList.filter(floraType => this.isCorrectHabitat(floraType.natural_habitat));
+  }
+  
+  get filteredFaunaList(): Fauna[] {
+    return this.fauna.filter(faunaType => this.isCorrectHabitat(faunaType.natural_habitat));
+  }
+
+  isCorrectHabitat(natural_habitat: string): boolean {
+    if(natural_habitat === 'TERRESTRIAL') {
+      return this.isTerrestial();
+    } else if (natural_habitat === 'SALT_WATER' || natural_habitat === 'AQUATIC') {
+      return this.isSaltWater();
+    } else {
+      return false;
+    }
+  }
+
+  isTerrestial(): boolean{
+    return this.coordinate.tile.surfaceType === SurfaceType.PLAIN
+      || this.coordinate.tile.surfaceType === SurfaceType.HILL
+      || this.coordinate.tile.surfaceType === SurfaceType.MOUNTAIN
+      || this.coordinate.tile.surfaceType === SurfaceType.LAKE
+      || this.coordinate.tile.surfaceType === SurfaceType.LARGE_RIVER;
+  }
+
+  isSaltWater(): boolean{
+    return this.coordinate.tile.surfaceType ===SurfaceType.COASTAL
+    || this.coordinate.tile.surfaceType ===SurfaceType.SEA
+    || this.coordinate.tile.surfaceType ===SurfaceType.OCEAN;
   }
 
   onCancelAction() {
